@@ -28,11 +28,7 @@ displayName = "KubeJS Mystical Agriculture"
 # authors="Me!" #optional
 # A multi-line description for your mod. This has no minimum length, but it *is* required!
 description = '''
-This is a very cool mod that does... things.
-
-...and stuff.
-
-Have I reached 280 characters yet?
+Adds Mystical Agriculture support to KubeJS.
 '''
 
 # An (optional) dependency for your mod. Though technically not required,
@@ -54,5 +50,11 @@ mandatory = true
 # See above for how to read this notation, this essentially means any
 # version of Minecraft from 1.20.1 (inclusive).
 versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.kubejs_mystical_agriculture]]
+modId = "kubejs"
+mandatory = true
+versionRange = "[${kubejs_version},)"
 ordering = "NONE"
 side = "BOTH"

@@ -1,23 +1,24 @@
 package eldritch.cookie.kubejs.mysticalagriculture;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.Items;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.level.ExplosionEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+//import net.minecraft.client.Minecraft;
+//import net.minecraft.world.item.Items;
+//import net.minecraftforge.common.MinecraftForge;
+//import net.minecraftforge.event.level.ExplosionEvent;
+//import net.minecraftforge.eventbus.api.IEventBus;
+//import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+//import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+//import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+//import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod("kubejs_mystical_agriculture")
+@Mod(KubeJSMysticalAgriculture.MOD_ID)
 public class KubeJSMysticalAgriculture {
 
     public static final Logger LOGGER = LogManager.getLogger();
-
+    public static final String MOD_ID = "kubejs_mystical_agriculture";
+    /*
     public KubeJSMysticalAgriculture() {
 
         // This is our mod's event bus, used for things like registry or lifecycle events
@@ -46,10 +47,5 @@ public class KubeJSMysticalAgriculture {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         //LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
-    }
-
-    @SubscribeEvent
-    public void kaboom(ExplosionEvent.Detonate event) {
-        //LOGGER.info("Kaboom! Something just blew up in {}!", event.getLevel());
-    }
+    }*/
 }
