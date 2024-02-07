@@ -62,6 +62,11 @@ repositories {
     maven {
         url 'https://maven.blakesmods.com'
     }
+    maven {
+    // location of the maven that hosts JEI files since January 2023
+    name = "Jared's maven"
+    url = "https://maven.blamejared.com/"
+  }
 }
 
 dependencies {
@@ -99,6 +104,8 @@ dependencies {
     localRuntime("io.github.llamalad7:mixinextras-forge:0.2.0-rc.2")
     modImplementation("com.blakebr0.cucumber:Cucumber:${minecraft_version}-${cucumber_version}")
     modImplementation("com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-${mysticalagriculture_version}")
+    // while i don't know how to make a dependencies for only runClient comment this out to test it doesn't dedpend on JEI 
+    modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
 processResources {
