@@ -9,5 +9,6 @@ import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
 public interface ReprocessorRecipeSchema {
   RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
   RecipeKey<OutputItem> RESULT = ItemComponents.OUTPUT.key("result");
-  RecipeSchema SCHEMA = new RecipeSchema(RESULT,INPUT);
+  RecipeSchema SCHEMA = new RecipeSchema(RESULT,INPUT)
+    .uniqueOutputId(RESULT);
 }

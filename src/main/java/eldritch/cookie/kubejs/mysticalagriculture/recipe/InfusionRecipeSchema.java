@@ -10,5 +10,6 @@ public interface InfusionRecipeSchema {
   RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
   RecipeKey<InputItem[]> INGREDIENTS = ItemComponents.UNWRAPPED_INPUT_ARRAY.key("ingredients");
   RecipeKey<OutputItem> RESULT = ItemComponents.OUTPUT.key("result");
-  RecipeSchema SCHEMA = new RecipeSchema(RESULT,INPUT,INGREDIENTS);
+  RecipeSchema SCHEMA = new RecipeSchema(RESULT,INPUT,INGREDIENTS)
+    .uniqueOutputId(RESULT);
 }

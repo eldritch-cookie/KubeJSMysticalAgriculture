@@ -13,6 +13,7 @@ public interface AwakeningRecipeSchema {
   RecipeKey<OutputItem> RESULT = ItemComponents.OUTPUT.key("result");
   
   // TODO: check if subclassing is necessary
-  RecipeSchema SCHEMA =  new RecipeSchema(RESULT,INPUT,ESSENCES,INGREDIENTS);
+  RecipeSchema SCHEMA =  new RecipeSchema(RESULT,INPUT,ESSENCES,INGREDIENTS)
+    .uniqueOutputId(RESULT);
 
 }
