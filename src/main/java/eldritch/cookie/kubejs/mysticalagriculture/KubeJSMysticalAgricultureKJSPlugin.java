@@ -8,6 +8,7 @@ import eldritch.cookie.kubejs.mysticalagriculture.recipe.EnchanterRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.InfusionRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.ReprocessorRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.SoulExtractionRecipeSchema;
+import eldritch.cookie.kubejs.mysticalagriculture.recipe.SouliumSpawnerRecipeSchema;
 
 //import static eldritch.cookie.kubejs.mysticalagriculture.KubeJSMysticalAgriculture.*;
 public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
@@ -26,6 +27,7 @@ public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
       .register("infusion",InfusionRecipeSchema.SCHEMA)
       .register("reprocessor",ReprocessorRecipeSchema.SCHEMA)
       .register("soul_extraction",SoulExtractionRecipeSchema.SCHEMA)
+      .register("soulium_spawner",SouliumSpawnerRecipeSchema.SCHEMA)
       ;
   }
 }
