@@ -105,7 +105,7 @@ dependencies {
     modImplementation("com.blakebr0.cucumber:Cucumber:${minecraft_version}-${cucumber_version}")
     modImplementation("com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-${mysticalagriculture_version}")
     // while i don't know how to make a dependencies for only runClient comment this out to test it doesn't dedpend on JEI 
-    modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    //modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
 processResources {

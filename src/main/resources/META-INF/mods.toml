@@ -58,3 +58,9 @@ mandatory = true
 versionRange = "[${kubejs_version},)"
 ordering = "NONE"
 side = "BOTH"
+[[dependencies.kubejs_mystical_agriculture]]
+modId = "mysticalagriculture"
+mandatory = true
+versionRange = "[${kubejs_version},)"
+ordering = "NONE"
+side = "BOTH"
