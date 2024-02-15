@@ -1,1 +1,1 @@
-# loo at the kubejs wiki for documentation
+# look at the kubejs wiki for documentation
