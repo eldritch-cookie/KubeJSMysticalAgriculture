@@ -115,7 +115,7 @@ processResources {
     // this will replace the property "${version}" in your mods.toml
     // with the version you've defined in your gradle.properties
     filesMatching("META-INF/mods.toml") {
-        expand ("version": project.version,"kubejs_version":project.kubejs_version)
+        expand ("version": project.version,"kubejs_version":project.kubejs_version,"mysticalagriculture_version":project.mysticalagriculture_version)
     }
 }
 
