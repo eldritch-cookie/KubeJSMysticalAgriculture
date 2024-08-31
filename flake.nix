@@ -32,9 +32,9 @@
           typos.enable = true;
         };
         devShells.default = let runtimeLibs = with pkgs ;[glfw libGL openal libpulseaudio ]; in pkgs.mkShell {
-          packages = with pkgs;[(gradle.override {java = jdk17;})];
+          packages = with pkgs;[(gradle.override {java = jdk21;})];
           buildInputs = runtimeLibs;
-          JAVA_HOME = "${pkgs.jdk17}";
+          JAVA_HOME = "${pkgs.jdk21}";
           LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib:${pkgs.lib.makeLibraryPath runtimeLibs}";
         };
       };
