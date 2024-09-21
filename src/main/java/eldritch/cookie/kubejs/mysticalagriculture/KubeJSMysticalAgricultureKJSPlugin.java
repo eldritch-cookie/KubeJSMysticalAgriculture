@@ -45,17 +45,17 @@ public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
   public void registerTypeWrappers(ScriptType type, TypeWrappers typeWrappers){
     typeWrappers.register(Crop.class,(ctx,o) -> {
       if (o instanceof Crop c) return c;
-      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getCropById(new ResourceLocation(cs.toString()));
+      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getCropById(ResourceLocation.parse(cs.toString()));
       return null;
     });
     typeWrappers.register(CropTier.class,(ctx,o) -> {
       if (o instanceof CropTier c) return c;
-      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTierById(new ResourceLocation(cs.toString()));
+      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTierById(ResourceLocation.parse(cs.toString()));
       return null;
     });
     typeWrappers.register(CropType.class,(ctx,o) -> {
       if (o instanceof CropType c) return c;
-      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTypeById(new ResourceLocation(cs.toString()));
+      if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTypeById(ResourceLocation.parse(cs.toString()));
       return null;
     });
     typeWrappers.register(LazyIngredient.class, (ctx,o) -> {
@@ -69,7 +69,7 @@ public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
     });
     typeWrappers.register(MobSoulType.class, (ctx,o)-> {
       if(o instanceof MobSoulType mst) return mst;
-      if(o instanceof CharSequence cs) return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(cs.toString()));
+      if(o instanceof CharSequence cs) return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(ResourceLocation.parse(cs.toString()));
       return null;
     });
   }

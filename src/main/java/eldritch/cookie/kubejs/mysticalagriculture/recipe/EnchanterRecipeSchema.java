@@ -11,6 +11,5 @@ import net.minecraft.world.item.enchantment.Enchantment;
 public interface EnchanterRecipeSchema {
   RecipeKey<InputItem[]> INGREDIENTS = (new InputItemWithCountComponent()).asArray().key("ingredients");
   RecipeKey<Enchantment> ENCHANTMENT = new RegistryComponent<Enchantment>(RegistryInfo.ENCHANTMENT).key("enchantment");
-  RecipeSchema SCHEMA = new RecipeSchema(ENCHANTMENT,INGREDIENTS)
-    .uniqueId((recipe) -> recipe.getValue(ENCHANTMENT).getDescriptionId());
+  RecipeSchema SCHEMA = new RecipeSchema(ENCHANTMENT,INGREDIENTS);
 }

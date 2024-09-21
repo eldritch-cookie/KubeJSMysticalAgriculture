@@ -36,7 +36,7 @@ public class WeightedEntityComponent implements RecipeComponent<WeightedEntity>{
       return we;
     }
     JsonObject obj = MapJS.json(from);
-    return new WeightedEntity(RegistryInfo.ENTITY_TYPE.getValue(new ResourceLocation(obj.get("entity").getAsString())), obj.has("weight") ? obj.get("weight").getAsInt() : 1);
+    return new WeightedEntity(RegistryInfo.ENTITY_TYPE.getValue(ResourceLocation.parse(obj.get("entity").getAsString())), obj.has("weight") ? obj.get("weight").getAsInt() : 1);
   }
    
 }

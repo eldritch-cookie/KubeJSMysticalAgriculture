@@ -19,7 +19,7 @@ public interface SoulExtractionRecipeSchema {
   {
     private RecipeJS valueMapAccept(ComponentValueMap from){
       setValue(INPUT,from.getValue(this,INPUT));
-      setValue(OUTPUT,new MobSouls(MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(from.getValue(this,TYPE))),from.getValue(this,SOULS)));
+      setValue(OUTPUT,new MobSouls(MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(ResourceLocation.parse(from.getValue(this,TYPE))),from.getValue(this,SOULS)));
       return this;
     }
   }

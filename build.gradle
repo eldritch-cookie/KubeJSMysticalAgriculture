@@ -1,5 +1,5 @@
 plugins {
-    id "dev.architectury.loom" version "1.3-SNAPSHOT"
+    id "dev.architectury.loom" version "1.7-SNAPSHOT"
     id "maven-publish"
 }
 
@@ -11,7 +11,7 @@ version = project.mod_version
 group = project.maven_group
 
 java {
-    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_21
 }
 
 loom {
@@ -19,22 +19,6 @@ loom {
     // and want loom to stop warning you about their license
     silentMojangMappingsLicense()
 
-    // since loom 0.10, you are **required** to use the
-    // "forge" block to configure forge-specific features,
-    // such as the mixinConfigs array or datagen
-    forge {
-        // specify the mixin configs used in this mod
-        // this will be added to the jar manifest as well!
-
-        // missing access transformers?
-        // don't worry, you can still use them!
-        // note that your AT *MUST* be located at
-        // src/main/resources/META-INF/accesstransformer.cfg
-        // to work as there is currently no config option to change this.
-        // also, any names used in your access transformer will need to be
-        // in SRG mapped ("func_" / "field_" with MCP class names) to work!
-        // (both of these things may be subject to change in the future)
-    }
 }
 
 repositories {
@@ -43,6 +27,7 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    mavenLocal()
     maven {
 		// Shedaniel's maven (Architectury API)
 		    url = "https://maven.architectury.dev"
@@ -66,7 +51,8 @@ repositories {
     // location of the maven that hosts JEI files since January 2023
     name = "Jared's maven"
     url = "https://maven.blamejared.com/"
-  }
+    }
+    maven { url 'https://maven.neoforged.net/releases/' }
 }
 
 dependencies {
@@ -83,8 +69,7 @@ dependencies {
     // uncomment this if you want to use yarn mappings
     // mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
-    // your forge dependency, this is **required** when using Forge Loom in forge mode!
-    forge "net.minecraftforge:forge:${project.forge_version}"
+    neoForge "net.neoforged:neoforge:${project.neoforge_version}"
 
     // additional dependencies can be specified using loom's regular format
     // specifying a "mod" dependency (like modImplementation or modApi)
@@ -125,7 +110,7 @@ tasks.withType(JavaCompile) {
     // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     // If Javadoc is generated, this must be specified in that task too.
     options.encoding = "UTF-8"
-    options.release = 17
+    options.release = 21
 }
 
 java {

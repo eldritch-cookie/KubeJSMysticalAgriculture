@@ -34,7 +34,7 @@ public class MobSoulTypeComponent implements RecipeComponent<MobSouls>{
       return soul;
     }
     JsonObject obj = MapJS.json(from);
-    return new MobSouls(MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(obj.get("type").getAsString())),obj.get("souls").getAsDouble());
+    return new MobSouls(MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(ResourceLocation.parse(obj.get("type").getAsString())),obj.get("souls").getAsDouble());
   }
 
 }
