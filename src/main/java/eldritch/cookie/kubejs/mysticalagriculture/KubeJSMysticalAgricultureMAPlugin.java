@@ -7,8 +7,8 @@ import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 
 import eldritch.cookie.kubejs.mysticalagriculture.bindings.event.MysticalAgricultureStartupEvents;
-import eldritch.cookie.kubejs.mysticalagriculture.registry.CropRegistryEventJS;
-import eldritch.cookie.kubejs.mysticalagriculture.registry.MobSoulTypeRegistryEventJS;
+import eldritch.cookie.kubejs.mysticalagriculture.registry.CropRegistryEvent;
+import eldritch.cookie.kubejs.mysticalagriculture.registry.MobSoulTypeRegistryEvent;
 
 @MysticalAgriculturePlugin
 public class KubeJSMysticalAgricultureMAPlugin implements IMysticalAgriculturePlugin{
@@ -20,10 +20,10 @@ public class KubeJSMysticalAgricultureMAPlugin implements IMysticalAgriculturePl
 
   @Override
   public void onRegisterCrops(ICropRegistry registry) {
-    MysticalAgricultureStartupEvents.CROP.post(new CropRegistryEventJS(registry));
+    MysticalAgricultureStartupEvents.CROP.post(new CropRegistryEvent(registry));
   }
 
   @Override
   public void onRegisterMobSoulTypes(IMobSoulTypeRegistry registry) {
-    MysticalAgricultureStartupEvents.MOB_SOUL.post(new MobSoulTypeRegistryEventJS(registry));
+    MysticalAgricultureStartupEvents.MOB_SOUL.post(new MobSoulTypeRegistryEvent(registry));
   }};
