@@ -16,11 +16,11 @@ import dev.latvian.mods.kubejs.script.BindingRegistry;
 import dev.latvian.mods.kubejs.script.TypeWrapperRegistry;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import dev.latvian.mods.rhino.util.wrap.TypeWrappers;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.EnchanterRecipeSchema;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.InfusionRecipeSchema;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.ReprocessorRecipeSchema;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.SoulExtractionRecipeSchema;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.SouliumSpawnerRecipeSchema;
+//import eldritch.cookie.kubejs.mysticalagriculture.recipe.EnchanterRecipeSchema;
+//import eldritch.cookie.kubejs.mysticalagriculture.recipe.InfusionRecipeSchema;
+//import eldritch.cookie.kubejs.mysticalagriculture.recipe.ReprocessorRecipeSchema;
+//import eldritch.cookie.kubejs.mysticalagriculture.recipe.SoulExtractionRecipeSchema;
+//import eldritch.cookie.kubejs.mysticalagriculture.recipe.SouliumSpawnerRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.bindings.event.MysticalAgricultureStartupEvents;
 import net.minecraft.resources.ResourceLocation;
 
