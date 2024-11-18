@@ -38,9 +38,10 @@ repositories {
 
 	  maven {
 		// saps.dev Maven (KubeJS and Rhino)
-		    url = "https://maven.saps.dev/minecraft"
+		    url = "https://maven.latvian.dev/releases"
 		    content {
 			      includeGroup "dev.latvian.mods"
+			      includeGroup "dev.latvian.apps"
 		    }
 	  }
     
@@ -53,6 +54,13 @@ repositories {
     url = "https://maven.blamejared.com/"
     }
     maven { url 'https://maven.neoforged.net/releases/' }
+    
+	  maven {
+		    url 'https://jitpack.io'
+		    content {
+			  includeGroup "com.github.rtyley"
+		    }
+	  }
 }
 
 dependencies {
@@ -84,9 +92,7 @@ dependencies {
     // modCompileOnly "mezz.jei:jei-1.20.1:${jei_version}:api"
     // at runtime, use the full JEI jar
     // modRuntimeOnly "mezz.jei:jei-1.20.1:${jei_version}"
-    modApi("dev.latvian.mods:kubejs-forge:${kubejs_version}")
-    //compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5"))
-    localRuntime("io.github.llamalad7:mixinextras-forge:0.2.0-rc.2")
+    modApi("dev.latvian.mods:kubejs-neoforge:${kubejs_version}")
     modImplementation("com.blakebr0.cucumber:Cucumber:${minecraft_version}-${cucumber_version}")
     modImplementation("com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-${mysticalagriculture_version}")
     // while i don't know how to make a dependencies for only runClient comment this out to test it doesn't dedpend on JEI 
@@ -100,7 +106,14 @@ processResources {
     // this will replace the property "${version}" in your mods.toml
     // with the version you've defined in your gradle.properties
     filesMatching("META-INF/mods.toml") {
-        expand ("version": project.version,"kubejs_version":project.kubejs_version,"mysticalagriculture_version":project.mysticalagriculture_version)
+        expand (
+          "mod_id" : project.mod_id
+        , "version": project.version
+        , "neoforge_version": project.neoforge_version
+        , "minecraft_version": project.minecraft_version
+        , "kubejs_version": project.kubejs_version
+        , "mysticalagriculture_version": project.mysticalagriculture_version
+        )
     }
 }
 

@@ -1,0 +1,24 @@
+{
+  "keys": [
+    {
+      "name": "essences",
+      "role": "input",
+      "type": "flat_sized_ingredient[]"
+    },
+    {
+      "name": "input",
+      "role": "input",
+      "type": "ingredient"
+    },
+    { 
+      "name": "ingredients",
+      "role": "input",
+      "type": "unwrapped_ingredient_list"
+    },
+    {
+      "name": "result"
+      "role": "output"
+      "type": "item_stack"
+    }
+  ]
+}

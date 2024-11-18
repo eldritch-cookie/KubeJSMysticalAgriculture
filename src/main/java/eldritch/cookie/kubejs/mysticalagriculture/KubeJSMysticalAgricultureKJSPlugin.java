@@ -9,12 +9,13 @@ import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 
-import dev.latvian.mods.kubejs.KubeJSPlugin;
-import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
-import dev.latvian.mods.kubejs.script.BindingsEvent;
+import dev.latvian.mods.kubejs.event.EventGroupRegistry;
+import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
+import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
+import dev.latvian.mods.kubejs.script.BindingRegistry;
+import dev.latvian.mods.kubejs.script.TypeWrapperRegistry;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import dev.latvian.mods.rhino.util.wrap.TypeWrappers;
-import eldritch.cookie.kubejs.mysticalagriculture.recipe.AwakeningRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.EnchanterRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.InfusionRecipeSchema;
 import eldritch.cookie.kubejs.mysticalagriculture.recipe.ReprocessorRecipeSchema;
@@ -23,42 +24,41 @@ import eldritch.cookie.kubejs.mysticalagriculture.recipe.SouliumSpawnerRecipeSch
 import eldritch.cookie.kubejs.mysticalagriculture.bindings.event.MysticalAgricultureStartupEvents;
 import net.minecraft.resources.ResourceLocation;
 
-//import static eldritch.cookie.kubejs.mysticalagriculture.KubeJSMysticalAgriculture.*;
-public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
+import static eldritch.cookie.kubejs.mysticalagriculture.KubeJSMysticalAgriculture.*;
+public class KubeJSMysticalAgricultureKJSPlugin implements KubeJSPlugin {
   @Override
-  public void registerEvents() {
-    MysticalAgricultureStartupEvents.GROUP.register();
+  public void registerEvents(EventGroupRegistry registry) {
+    registry.register(MysticalAgricultureStartupEvents.GROUP);
   }
   @Override
-  public void registerRecipeSchemas(RegisterRecipeSchemasEvent event){
+  public void registerRecipeSchemas(RecipeSchemaRegistry regRS){
     
-    event.namespace(MysticalAgricultureAPI.MOD_ID)
-      .register("awakening",AwakeningRecipeSchema.SCHEMA)
-      .register("enchanter",EnchanterRecipeSchema.SCHEMA)
-      .register("infusion",InfusionRecipeSchema.SCHEMA)
-      .register("reprocessor",ReprocessorRecipeSchema.SCHEMA)
-      .register("soul_extraction",SoulExtractionRecipeSchema.SCHEMA)
-      .register("soulium_spawner",SouliumSpawnerRecipeSchema.SCHEMA)
+    regRS.namespace(MysticalAgricultureAPI.MOD_ID)
+      //.register("enchanter",EnchanterRecipeSchema.SCHEMA)
+      //.register("infusion",InfusionRecipeSchema.SCHEMA)
+      //.register("reprocessor",ReprocessorRecipeSchema.SCHEMA)
+      //.register("soul_extraction",SoulExtractionRecipeSchema.SCHEMA)
+      //.register("soulium_spawner",SouliumSpawnerRecipeSchema.SCHEMA)
       ;
   }
   @Override
-  public void registerTypeWrappers(ScriptType type, TypeWrappers typeWrappers){
-    typeWrappers.register(Crop.class,(ctx,o) -> {
+  public void registerTypeWrappers(TypeWrapperRegistry typeWrappers){
+    typeWrappers.register(Crop.class,(ctx,o,ti) -> {
       if (o instanceof Crop c) return c;
       if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getCropById(ResourceLocation.parse(cs.toString()));
       return null;
     });
-    typeWrappers.register(CropTier.class,(ctx,o) -> {
+    typeWrappers.register(CropTier.class,(ctx,o,ti) -> {
       if (o instanceof CropTier c) return c;
       if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTierById(ResourceLocation.parse(cs.toString()));
       return null;
     });
-    typeWrappers.register(CropType.class,(ctx,o) -> {
+    typeWrappers.register(CropType.class,(ctx,o,ti) -> {
       if (o instanceof CropType c) return c;
       if (o instanceof CharSequence cs) return MysticalAgricultureAPI.getCropRegistry().getTypeById(ResourceLocation.parse(cs.toString()));
       return null;
     });
-    typeWrappers.register(LazyIngredient.class, (ctx,o) -> {
+    typeWrappers.register(LazyIngredient.class, (ctx,o,ti) -> {
       if(o instanceof LazyIngredient l) return l;
       if(o instanceof CharSequence cs) {
         String s = cs.toString();
@@ -67,14 +67,14 @@ public class KubeJSMysticalAgricultureKJSPlugin extends KubeJSPlugin {
       }
       return null;
     });
-    typeWrappers.register(MobSoulType.class, (ctx,o)-> {
+    typeWrappers.register(MobSoulType.class, (ctx,o,ti)-> {
       if(o instanceof MobSoulType mst) return mst;
       if(o instanceof CharSequence cs) return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(ResourceLocation.parse(cs.toString()));
       return null;
     });
   }
   @Override
-  public void registerBindings(BindingsEvent event) {
+  public void registerBindings(BindingRegistry event) {
     event.add("Crop",Crop.class);
     event.add("CropTier",CropTier.class);
     event.add("CropType",CropType.class);

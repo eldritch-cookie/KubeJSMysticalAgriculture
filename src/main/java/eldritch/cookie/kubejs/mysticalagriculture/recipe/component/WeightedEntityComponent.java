@@ -3,9 +3,7 @@ package eldritch.cookie.kubejs.mysticalagriculture.recipe.component;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import dev.latvian.mods.kubejs.recipe.RecipeJS;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
-import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import dev.latvian.mods.kubejs.util.MapJS;
 import net.minecraft.resources.ResourceLocation;
 

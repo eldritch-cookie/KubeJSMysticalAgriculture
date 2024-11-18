@@ -11,16 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class MobSoulTypeComponent implements RecipeComponent<MobSouls>{
   @Override
-  public Class<?> componentClass() {
-    return MobSouls.class;
-  }
-
-  @Override
-  public String componentType() {
-    return "mob_souls";
-  }
-
-  @Override
   public JsonElement write(RecipeJS recipe, MobSouls value) {
     final JsonObject ret = new JsonObject ();
     ret.addProperty("type",value.type().getId().toString());
