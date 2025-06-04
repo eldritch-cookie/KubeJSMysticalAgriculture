@@ -7,7 +7,7 @@ import eldritch.cookie.kubejs.mysticalagriculture.registry.MobSoulTypeRegistryEv
 
 public interface MysticalAgricultureStartupEvents {
   EventGroup GROUP = EventGroup.of("MysticalAgricultureStartupEvents");
-  // TODO: add event for augments 
-  EventHandler MOB_SOUL = GROUP.startup("mob_soul",() -> MobSoulTypeRegistryEvent.class);
-  EventHandler CROP = GROUP.startup("crop",() -> CropRegistryEvent.class);
+  // TODO: add event for augments
+  EventHandler MOB_SOUL = GROUP.startup("mob_soul", () -> MobSoulTypeRegistryEvent.class);
+  EventHandler CROP = GROUP.startup("crop", () -> CropRegistryEvent.class);
 }

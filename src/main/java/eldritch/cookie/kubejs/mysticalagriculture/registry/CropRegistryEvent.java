@@ -1,16 +1,9 @@
 package eldritch.cookie.kubejs.mysticalagriculture.registry;
 
+import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import dev.latvian.mods.kubejs.event.KubeStartupEvent;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.blakebr0.mysticalagriculture.api.crop.Crop;
-import com.blakebr0.mysticalagriculture.api.crop.CropTier;
-import com.blakebr0.mysticalagriculture.api.crop.CropType;
-import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
-
-import dev.latvian.mods.kubejs.event.KubeStartupEvent;
-import dev.latvian.mods.kubejs.registry.RegistryCallback;
-import net.minecraft.resources.ResourceLocation;
 
 public class CropRegistryEvent implements KubeStartupEvent {
   // TODO: make Registry Event implementation use custom filters similarly to recipes
@@ -25,8 +18,7 @@ public class CropRegistryEvent implements KubeStartupEvent {
   public final List<CropTierBuilder> createdTiers = new ArrayList<CropTierBuilder>();
   public final List<CropTypeBuilder> createdCropTypes = new ArrayList<CropTypeBuilder>();
 
-  public CropRegistryEvent(ICropRegistry registry){
+  public CropRegistryEvent(ICropRegistry registry) {
     this.registry = registry;
   }
-
 }

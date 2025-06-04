@@ -4,7 +4,5 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CropTierBuilder {
 
-  public CropTierBuilder(ResourceLocation id) {
-  }
+  public CropTierBuilder(ResourceLocation id) {}
 }
-

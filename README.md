@@ -1,1 +1,1 @@
-# look at the kubejs wiki for documentation
+# Look At Modrinth Page for examples
